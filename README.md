@@ -2,6 +2,7 @@
 
 - Login/Sign up page
   - Sign In/Sign Up form
+  - Form validation using Formik
   - Redirect to Browse page
 - Browse Page (after authentication)
   - Header

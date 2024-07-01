@@ -1,8 +1,20 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
-  console.log("isSignInForm: ", isSignInForm);
+  const email = useRef("");
+  const fullName = useRef("");
+  const password = useRef("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const emailValue = email?.current?.value;
+    const passwordValue = password?.current?.value;
+    const fullNameValue = fullName?.current?.value;
+
+    
+    //validate the form data
+  };
 
   const toggleSignInForm = () => {
     setIsSignInForm((isSignInForm) => !isSignInForm);
@@ -12,31 +24,37 @@ const Login = () => {
       <div className="absolute">
         <img
           src="https://assets.nflxext.com/ffe/siteui/vlv3/a56dc29b-a0ec-4f6f-85fb-50df0680f80f/2f8ae902-8efe-49bb-9a91-51b6fcc8bf46/IN-en-20240617-popsignuptwoweeks-perspective_alpha_website_large.jpg"
-          alt="background-image"
+          alt="background"
         />
       </div>
-      <form className="flex relative flex-col w-3/12 top-32 left-[40%] px-10 py-20 border rounded-md border-black bg-[rgba(0,0,0,0.7)]">
+      <form
+        onSubmit={handleSubmit}
+        className="flex relative flex-col w-3/12 top-32 left-[40%] px-10 py-20 border rounded-md border-black bg-[rgba(0,0,0,0.7)]"
+      >
         <h1 className="text-3xl font-bold text-white pb-8">
           {isSignInForm ? "Sign In" : "Sign Up"}
         </h1>
         {!isSignInForm && (
           <input
             type="text"
+            ref={fullName}
             placeholder="Full Name"
-            className="p-3 border mb-4 bg-transparent text-white"
+            className="p-3 border mb-4 bg-transparent text-white focus:outline-none focus:border-2 focus:ring-1 focus:ring-white focus:border-white focus:invalid:border-red-600 focus:invalid:ring-red-600"
           />
         )}
         <input
-          type="text"
+          type="email"
+          ref={email}
           placeholder="Email"
-          className="p-3 border mb-4 bg-transparent text-white"
+          className="p-3 border mb-4 bg-transparent text-white focus:outline-none focus:border-2 focus:ring-1 focus:ring-white focus:border-white focus:invalid:border-red-600 focus:invalid:ring-red-600"
         />
         <input
           type="password"
+          ref={password}
           placeholder="Password"
-          className="p-3 border  mb-6 bg-transparent text-white"
+          className="p-3 border  mb-6 bg-transparent text-white focus:outline-none focus:border-2 focus:ring-1 focus:ring-white focus:border-white focus:invalid:border-red-600 focus:invalid:ring-red-600"
         />
-        <button className="p-2 border border-black bg-red-600 font-bold">
+        <button className="p-2 border border-black text-white bg-red-600 font-semibold">
           {isSignInForm ? "Sign In" : "Sign Up"}
         </button>
 
