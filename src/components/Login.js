@@ -12,7 +12,7 @@ const Login = () => {
       <div className="absolute">
         <img
           src="https://assets.nflxext.com/ffe/siteui/vlv3/a56dc29b-a0ec-4f6f-85fb-50df0680f80f/2f8ae902-8efe-49bb-9a91-51b6fcc8bf46/IN-en-20240617-popsignuptwoweeks-perspective_alpha_website_large.jpg"
-          alt="background-image"
+          alt="background"
         />
       </div>
       <form className="flex relative flex-col w-3/12 top-32 left-[40%] px-10 py-20 border rounded-md border-black bg-[rgba(0,0,0,0.7)]">
@@ -23,18 +23,18 @@ const Login = () => {
           <input
             type="text"
             placeholder="Full Name"
-            className="p-3 border mb-4 bg-transparent text-white"
+            className="p-3 border mb-4 bg-transparent text-white focus:outline-none focus:ring-2 focus:border-white focus:ring-white focus:invalid:border-red-500 focus:invalid:ring-red-500"
           />
         )}
         <input
-          type="text"
+          type="email"
           placeholder="Email"
-          className="p-3 border mb-4 bg-transparent text-white"
+          className="p-3 border mb-4 bg-transparent text-white focus:outline-none focus:ring-2 focus:border-white focus:ring-white focus:invalid:border-red-500 focus:invalid:ring-red-500"
         />
         <input
           type="password"
           placeholder="Password"
-          className="p-3 border  mb-6 bg-transparent text-white"
+          className="p-3 border mb-4 bg-transparent text-white focus:outline-none focus:ring-2 focus:border-white focus:ring-white focus:invalid:border-red-500 focus:invalid:ring-red-500"
         />
         <button className="p-2 border border-black bg-red-600 font-bold">
           {isSignInForm ? "Sign In" : "Sign Up"}
