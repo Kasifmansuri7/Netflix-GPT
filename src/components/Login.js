@@ -12,7 +12,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const fullName = useRef(null);
   const email = useRef(null);
-  const password = useRef(null);
+  const password = useRef("Test@1234");
 
   const handleSubmit = (e) => {
     e.preventDefault();
