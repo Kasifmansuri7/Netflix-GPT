@@ -13,3 +13,4 @@
 - Netflix GPT
   - Search Bar
   - Movie Suggestions
+  - Firebase Hosting and deployement
