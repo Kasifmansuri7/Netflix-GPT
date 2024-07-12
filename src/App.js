@@ -1,8 +1,12 @@
+import { onAuthStateChanged } from "firebase/auth";
+import { useEffect } from "react";
+import { Provider } from "react-redux";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
-import Login from "./components/Login";
 import Browse from "./components/Browse";
 import Header from "./components/Header";
-import Body from "./components/Body";
+import Login from "./components/Login";
+import { auth } from "./utils/firebase";
+import appStore from "./utils/store/appStore";
 
 const AppLayout = () => {
   return (
@@ -12,6 +16,7 @@ const AppLayout = () => {
     </div>
   );
 };
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -34,7 +39,18 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router}></RouterProvider>;
+  useEffect(() => {
+    onAuthStateChanged(auth, (user)=>{
+      console.log(user)
+    })
+  }, []);
+
+  
+  return (
+    <Provider store={appStore}>
+      <RouterProvider router={router} />;
+    </Provider>
+  );
 }
 
 export default App;
