@@ -14,3 +14,5 @@
   - Search Bar
   - Movie Suggestions
   - Firebase Hosting and deployement
+  - Redux store
+  - Authentication flow
