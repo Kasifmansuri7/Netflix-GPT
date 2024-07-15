@@ -28,7 +28,11 @@ const Header = () => {
       {user && (
         <div className="flex gap-2 items-center h-8">
           <img
-            src="https://wallpapers.com/images/high/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.webp"
+            src={
+              user.photoURL
+                ? user.photoURL
+                : 'https://wallpapers.com/images/high/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.webp'
+            }
             className="h-12 w-12 border border-black"
           />
           {user.displayName && (
