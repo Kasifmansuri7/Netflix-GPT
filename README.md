@@ -17,4 +17,4 @@
   - Firebase Hosting and deployement
   - Redux store
   - Authentication flow
-  - Fetch Data from TMDB movies
+  - Fetch Data from TMDB movie
