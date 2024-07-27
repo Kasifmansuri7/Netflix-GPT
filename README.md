@@ -14,3 +14,7 @@
 - Netflix GPT
   - Search Bar
   - Movie Suggestions
+  - Firebase Hosting and deployement
+  - Redux store
+  - Authentication flow
+  - Fetch Data from TMDB movies
