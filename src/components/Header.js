@@ -2,7 +2,7 @@ import { signOut } from 'firebase/auth';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { NETFLIX_LOGO, USER_AVATAR } from '../utils/constants';
-import { auth } from '../utils/firebase';
+import { auth } from '../utils/firebase.config';
 
 const Header = () => {
   const user = useSelector((state) => state.user);

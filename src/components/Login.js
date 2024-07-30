@@ -8,7 +8,7 @@ import { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { ClosedEye, GoogleIcon, OpenEye } from '../Assets/SVG';
 import { MOVIE_BACKGROUND } from '../utils/constants';
-import { auth, provider } from '../utils/firebase';
+import { auth, provider } from '../utils/firebase.config';
 import { addUser } from '../utils/store/userSlice';
 import { validateData } from '../utils/validate';
 

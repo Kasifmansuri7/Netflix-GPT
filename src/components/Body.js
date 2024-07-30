@@ -1,13 +1,17 @@
-import Header from './Header';
-import Browse from './Browse';
-import { useEffect } from 'react';
-import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
-import Login from './Login';
 import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../utils/firebase';
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import {
+  createBrowserRouter,
+  Outlet,
+  RouterProvider,
+  useNavigate,
+} from 'react-router-dom';
+import { auth } from '../utils/firebase.config';
 import { addUser, removeUser } from '../utils/store/userSlice';
-import { useNavigate } from 'react-router-dom';
+import Browse from './Browse';
+import Header from './Header';
+import Login from './Login';
 
 const AuthListener = () => {
   const dispatch = useDispatch();

@@ -1,6 +1,6 @@
 import { Provider } from 'react-redux';
-import appStore from './utils/store/appStore';
 import Body from './components/Body';
+import appStore from './utils/store/appStore';
 
 function App() {
   return (
@@ -11,4 +11,3 @@ function App() {
 }
 
 export default App;
-console.log("kadaidjfdsjhb")
