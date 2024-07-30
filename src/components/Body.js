@@ -13,6 +13,7 @@ const AuthListener = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   useEffect(() => {
+    // whenever this component loads the effect code executed, and returned unsubscribe function kept it somewhere, when this component unmounts the returns unsubscribe function executed first.
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         const { uid, displayName, email } = user;
