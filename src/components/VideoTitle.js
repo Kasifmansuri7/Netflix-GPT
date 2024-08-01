@@ -3,8 +3,8 @@ import { Info, Play } from '../Assets/SVG'
 export default function VideoTitle({ movie }) {
   const { original_title, overview } = movie
   return (
-    <div className="h-screen pt-16 w-1/3 absolute bg-gradient-to-r from-black">
-      <div className="top-2/4 left-24 absolute">
+    <div className=" bg-gradient-to-r from-black">
+      <div className="top-2/4 w-1/3 left-24 absolute">
         <h1 className="text-4xl text-white">{original_title}</h1>
         <p className="my-6 text-white">{overview}</p>
         <div className="my-6 flex">

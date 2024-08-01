@@ -6,9 +6,9 @@ export default function VideoBackground({ movieId }) {
   const trailerVideo = useSelector((store) => store?.movies.trailerVideo)
 
   return (
-    <div className="absolute">
+    <div>
       <iframe
-        className="h-screen w-screen object-cover"
+        className="h-screen w-full"
         src={`https://www.youtube.com/embed/${trailerVideo?.key}?autoplay=1&mute=1&playsinline=1&fs=1&controls=0`}
         title="YouTube video player"
         allow="accelerometer; autoplay=true; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

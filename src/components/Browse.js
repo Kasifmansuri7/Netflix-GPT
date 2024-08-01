@@ -1,15 +1,15 @@
-import useNowPlayingMovies from '../hooks/useNowPlayingMovies';
-import MainContainer from './MainContainer';
-import SecondaryContainer from './SecondaryContainer';
+import useNowPlayingMovies from '../hooks/useNowPlayingMovies'
+import MainContainer from './MainContainer'
+import SecondaryContainer from './SecondaryContainer'
 
 const Browse = () => {
-  useNowPlayingMovies();
+  useNowPlayingMovies()
   return (
-    <>
+    <div>
       <MainContainer />
       <SecondaryContainer />
-    </>
-  );
-};
+    </div>
+  )
+}
 
-export default Browse;
+export default Browse
