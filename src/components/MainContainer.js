@@ -8,9 +8,9 @@ export default function MainContainer() {
   if (!movies) return
 
   return (
-    <>
-      <VideoTitle movie={movies[0]} />
-      <VideoBackground movieId={movies[0]?.id} />
-    </>
+    <div className="relative">
+      <VideoBackground movieId={movies[3]?.id} />
+      <VideoTitle movie={movies[3]} />
+    </div>
   )
 }

@@ -1,22 +1,20 @@
-import { signOut } from 'firebase/auth';
-import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { NETFLIX_LOGO, USER_AVATAR } from '../utils/constants';
-import { auth } from '../utils/firebase.config';
+import { signOut } from 'firebase/auth'
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { NETFLIX_LOGO, USER_AVATAR } from '../utils/constants'
+import { auth } from '../utils/firebase.config'
 
 const Header = () => {
-  const user = useSelector((state) => state.user);
-  const navigate = useNavigate();
+  const user = useSelector((state) => state.user)
+  const navigate = useNavigate()
   const handleSignOut = () => {
     signOut(auth)
-      .then(() => {
-        console.log('Sign out successful');
-      })
+      .then(() => {})
       .catch((err) => {
-        console.log('Error while signing out... ', err);
-        navigate('/error');
-      });
-  };
+        console.log('Error while signing out... ', err)
+        navigate('/error')
+      })
+  }
 
   return (
     <header className="absolute z-10 px-4 py-2 w-full bg-gradient-to-b from-black flex justify-between items-center">
@@ -24,7 +22,7 @@ const Header = () => {
         <img src={NETFLIX_LOGO} alt="logo" />
       </div>
       {user && (
-        <div className="flex gap-2 items-center h-8">
+        <div className="flex gap-3 items-center h-8">
           <img
             src={user.photoURL ? user.photoURL : USER_AVATAR}
             className="h-12 w-12 border border-black"
@@ -41,7 +39,7 @@ const Header = () => {
         </div>
       )}
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

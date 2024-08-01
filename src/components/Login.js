@@ -3,85 +3,81 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   updateProfile,
-} from 'firebase/auth';
-import { useRef, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { ClosedEye, GoogleIcon, OpenEye } from '../Assets/SVG';
-import { MOVIE_BACKGROUND } from '../utils/constants';
-import { auth, provider } from '../utils/firebase.config';
-import { addUser } from '../utils/store/userSlice';
-import { validateData } from '../utils/validate';
+} from 'firebase/auth'
+import { useRef, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { ClosedEye, GoogleIcon, OpenEye } from '../Assets/SVG'
+import { MOVIE_BACKGROUND } from '../utils/constants'
+import { auth, provider } from '../utils/firebase.config'
+import { addUser } from '../utils/store/userSlice'
+import { validateData } from '../utils/validate'
 
 const Login = () => {
-  const [isSignInForm, setIsSignInForm] = useState(true);
-  const [errorMessage, setErrorMessage] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
-  const dispatch = useDispatch();
-  const fullNameRef = useRef(null);
-  const emailRef = useRef('kasif.mansuri.7@gmail.com');
-  const passwordRef = useRef('Test@1234');
+  const [isSignInForm, setIsSignInForm] = useState(true)
+  const [errorMessage, setErrorMessage] = useState(false)
+  const [showPassword, setShowPassword] = useState(false)
+  const dispatch = useDispatch()
+  const fullNameRef = useRef(null)
+  const emailRef = useRef('kasif.mansuri.7@gmail.com')
+  const passwordRef = useRef('Test@1234')
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     // Validate the data
-    const fullNameValue = fullNameRef?.current?.value;
-    const emailValue = emailRef?.current?.value;
-    const passwordValue = passwordRef?.current?.value;
+    const fullNameValue = fullNameRef?.current?.value
+    const emailValue = emailRef?.current?.value
+    const passwordValue = passwordRef?.current?.value
 
-    const validationResult = validateData(emailValue, passwordValue);
-    setErrorMessage(validationResult);
+    const validationResult = validateData(emailValue, passwordValue)
+    setErrorMessage(validationResult)
 
-    if (validationResult) return;
+    if (validationResult) return
 
     if (!isSignInForm) {
       // sign up
       // create user account
       createUserWithEmailAndPassword(auth, emailValue, passwordValue)
         .then((userCredential) => {
-          const user = userCredential.user;
+          const user = userCredential.user
           updateProfile(auth.currentUser, {
             displayName: fullNameValue,
           }).then(() => {
-            console.log('Display name added!');
-            console.log('auth: ', auth);
-            const { uid, displayName, email } = auth.currentUser;
-            dispatch(addUser({ uid, displayName, email }));
-          });
+            const { uid, displayName, email } = auth.currentUser
+            dispatch(addUser({ uid, displayName, email }))
+          })
         })
         .catch((error) => {
-          console.log('Sign up error: ', error);
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          setErrorMessage(`${errorCode}-${errorMessage}`);
-        });
+          console.log('Sign up error: ', error)
+          const errorCode = error.code
+          const errorMessage = error.message
+          setErrorMessage(`${errorCode}-${errorMessage}`)
+        })
     } else {
       // sign in
       signInWithEmailAndPassword(auth, emailValue, passwordValue)
         .then((userCredential) => {
-          const user = userCredential.user;
-          console.log('user: ', user);
+          const user = userCredential.user
         })
         .catch((error) => {
-          console.log('Sign in error: ', error);
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          setErrorMessage(`Invalid credentials!`);
-        });
+          console.log('Sign in error: ', error)
+          const errorCode = error.code
+          const errorMessage = error.message
+          setErrorMessage(`Invalid credentials!`)
+        })
     }
-  };
+  }
 
   const handleGoogleAuth = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
-        console.log('result: ', result);
-        const { uid, displayName, email, photoURL } = result.user;
-        dispatch(addUser({ uid, displayName, email, photoURL }));
+        const { uid, displayName, email, photoURL } = result.user
+        dispatch(addUser({ uid, displayName, email, photoURL }))
         // This gives you a Google Access Token. You can use it to access the Google API.
         // const credential = GoogleAuthProvider.credentialFromResult(result);
       })
       .catch((error) => {
-        console.log('Sign in with google failed...', error);
+        console.log('Sign in with google failed...', error)
         // Handle Errors here.
         // const errorCode = error.code;
         // const errorMessage = error.message;
@@ -90,11 +86,11 @@ const Login = () => {
         // // The AuthCredential type that was used.
         // const credential = GoogleAuthProvider.credentialFromError(error);
         // // ...
-      });
-  };
+      })
+  }
   const toggleSignInForm = () => {
-    setIsSignInForm((isSignInForm) => !isSignInForm);
-  };
+    setIsSignInForm((isSignInForm) => !isSignInForm)
+  }
   return (
     <div>
       <div className="absolute">
@@ -152,7 +148,7 @@ const Login = () => {
         </p>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login
