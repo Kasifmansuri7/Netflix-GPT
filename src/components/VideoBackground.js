@@ -12,7 +12,7 @@ export default function VideoBackground({ movieId }) {
         src={`https://www.youtube.com/embed/${trailerVideo?.key}?autoplay=1&mute=1&playsinline=1&fs=1&controls=0`}
         title="YouTube video player"
         allow="accelerometer; autoplay=true; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
+        referrerPolicy="strict-origin-when-cross-origin"
         allowFullScreen></iframe>
     </div>
   )
