@@ -1,9 +1,9 @@
-import { useSelector } from 'react-redux'
-import useTrailerVideo from '../hooks/useTrailerVideo'
+import { useSelector } from 'react-redux';
+import useTrailerVideo from '../hooks/useTrailerVideo';
 export default function VideoBackground({ movieId }) {
-  useTrailerVideo(movieId)
-  // useTrailerVideo('movieId')
-  const trailerVideo = useSelector((store) => store?.movies.trailerVideo)
+  // useTrailerVideo(movieId)
+  useTrailerVideo('movieId');
+  const trailerVideo = useSelector((store) => store?.movies.trailerVideo);
 
   return (
     <div>
@@ -15,5 +15,5 @@ export default function VideoBackground({ movieId }) {
         referrerPolicy="strict-origin-when-cross-origin"
         allowFullScreen></iframe>
     </div>
-  )
+  );
 }
